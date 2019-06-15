@@ -6,15 +6,14 @@ class NewVersionTest < Minitest::Test
   end
 
   def test_it_get_git_version
-    assert '2.17.1' == NewVersion.git
+    assert NewVersion.git.match('\d+.\d+\.\d+')
   end
   
   def test_it_get_ruby_version
-    assert '2.5.1' == NewVersion.get(:ruby)
-    assert '2.5.1' == NewVersion.ruby
+    assert NewVersion.ruby.match('\d+.\d+\.\d+')
   end
 
   def test_it_get_python_version
-    assert '3.6.5' == NewVersion.python
+    assert NewVersion.python.match('\d+.\d+\.\d+')
   end
 end
